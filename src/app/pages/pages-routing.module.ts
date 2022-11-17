@@ -14,7 +14,7 @@ const routes: Routes = [{
     {
       path: 'seguridad',
       loadChildren: () => import('./seguridad/seguridad.module')
-                          .then((m) => m.SeguridadModule)
+                          .then((m) => m.SeguridadModule),
     },
     {
       path: 'dashboard',
