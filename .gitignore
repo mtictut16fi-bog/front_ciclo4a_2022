@@ -1,3 +1,6 @@
+# Link simbólico a @ngular/cli local
+ng
+
 # compiled output
 /dist
 /tmp
