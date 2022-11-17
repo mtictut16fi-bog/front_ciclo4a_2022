@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    SeguridadRoutingModule
-  ]
+    SeguridadRoutingModule,
+  ],
 })
 export class SeguridadModule { }
