@@ -13,7 +13,8 @@ const routes: Routes = [{
   children: [
     {
       path: 'seguridad',
-      loadChildren: () => import('./seguridad/seguridad.module').then((m)=>m.SeguridadModule)
+      loadChildren: () => import('./seguridad/seguridad.module')
+                          .then((m) => m.SeguridadModule)
     },
     {
       path: 'dashboard',
