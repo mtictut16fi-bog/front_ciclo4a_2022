@@ -30,17 +30,17 @@ export class InscripcionesComponent implements OnInit {
   }
 
   agregar(): void{
-    console.log("agregando nuevo")
+    console.log("agregando nueva Inscripción")
   }
 
   editar(id:string): void{
-    console.log("editando a "+id)
+    console.log("editando Inscripción "+id)
   }
 
   eliminar(id: string): void{
     Swal.fire({
-                title: 'Eliminar Estudiante',
-                text: "Está seguro que quiere eliminar el estudiante?",
+                title: 'Eliminar Inscripción',
+                text: "¿Está seguro que quiere eliminar la inscripción?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -53,7 +53,7 @@ export class InscripcionesComponent implements OnInit {
                             //   data => {
                                 Swal.fire(
                                 'Eliminado!',
-                                'El estudiante ha sido eliminada correctamente',
+                                'La inscripción ha sido eliminada correctamente',
                                 'success'
                                 )
                                 this.ngOnInit();
