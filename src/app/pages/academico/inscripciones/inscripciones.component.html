@@ -12,9 +12,9 @@
         <th *ngFor="let columaActual of nombresColumnas">{{columaActual}}</th>
     </tr>
 
-    <ng-container *ngFor="let inscripcionActual of inscripciones">
+    <ng-container *ngFor="let inscripcionActual of inscripciones; index as i">
     <tr>
-        <td>{{inscripcionActual.ano}}</td>
+        <td>{{a$os[i]}}</td>
         <td>{{inscripcionActual.semestre}}</td>
         <td>{{inscripcionActual.estudiante}} </td>
         <td>{{inscripcionActual.materia}} </td>

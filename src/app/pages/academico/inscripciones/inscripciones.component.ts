@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Inscripcion } from '../../../modelos/inscripcion.model';
 import { InscripcionService } from '../../../servicios/inscripcion.service';
@@ -9,10 +10,11 @@ import { InscripcionService } from '../../../servicios/inscripcion.service';
   styleUrls: ['./inscripciones.component.scss']
 })
 export class InscripcionesComponent implements OnInit {
+  a$os: string[] = [];
   inscripciones: Inscripcion[];
   nombresColumnas: String[] = ['Año', 'Semestre', 'Estudiante', 'Materia', 'Nota Final', 'Opciones'];
   
-  constructor(private miServicioInscripcion: InscripcionService) {
+  constructor(private miServicioInscripcion: InscripcionService, private router: Router) {
     console.debug('Constructor componente Inscripciones');
   }
 
@@ -24,20 +26,28 @@ export class InscripcionesComponent implements OnInit {
   listar(): void{
     this.miServicioInscripcion.listar().subscribe(
       data => {
-                this.inscripciones=data;
+                this.inscripciones = data;
+                for (let i = 0; i<this.inscripciones.length; i++){
+                  this.inscripciones[i].estudiante = data[i].estudiante['nombre'] +' '+ data[i].estudiante['apellido'];
+                  this.inscripciones[i].materia = data[i].materia['nombre'];
+                  this.a$os[i] = this.inscripciones[i].año;
+                }
                 console.debug(this.inscripciones);
+                console.debug(this.a$os);
               });
   }
 
-  agregar(): void{
-    console.log("agregando nueva Inscripción")
+  agregar(): void {
+    console.log("agregando nueva Inscripción");
+    this.router.navigate(['pages/academico/inscripciones/crear']);
   }
 
-  editar(id:string): void{
-    console.log("editando Inscripción "+id)
+  editar(id: string): void {
+    console.log("editando Inscripción "+id);
+    this.router.navigate(['pages/academico/inscripciones/modificar/'+id]);
   }
 
-  eliminar(id: string): void{
+  eliminar(id: string): void {
     Swal.fire({
                 title: 'Eliminar Inscripción',
                 text: "¿Está seguro que quiere eliminar la inscripción?",
@@ -49,8 +59,8 @@ export class InscripcionesComponent implements OnInit {
               }).then(
                 (result) => {
                             if (result.isConfirmed) {
-                            // this.miServicioInscripcion.eliminar(id).subscribe(
-                            //   data => {
+                            this.miServicioInscripcion.eliminar(id).subscribe(
+                              data => {
                                 Swal.fire(
                                 'Eliminado!',
                                 'La inscripción ha sido eliminada correctamente',
@@ -58,8 +68,8 @@ export class InscripcionesComponent implements OnInit {
                                 )
                                 this.ngOnInit();
                               }
-                            // );
-                            // }
+                            );
+                            }
                   })
   }
 

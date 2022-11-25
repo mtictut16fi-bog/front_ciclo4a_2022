@@ -1,0 +1,66 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">CREAR INSCRIPCIÓN</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR INSCRIPCIÓN</nb-card-header>
+
+    <nb-card-body>
+    <div class="row">
+        <div class="col-3">
+            <label>Año&nbsp;&nbsp;</label>
+            <select [(ngModel)]="a$o" [disabled]="!modoCreacion" (change)="selectChange()">
+                <option value="">--</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+            </select>
+            <p *ngIf="intentoEnvio && a$o==''">Requerido</p>
+        </div>
+        <div class="col-9">
+            <label>Semestre&nbsp;&nbsp;</label>
+            <select [(ngModel)]="inscripcion.semestre" [disabled]="!modoCreacion">
+                <option value="">--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <p *ngIf="intentoEnvio && inscripcion.semestre==''">Requerido</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Estudiante</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [disabled]="!modoCreacion" [(ngModel)]="inscripcion.estudiante">
+            <p *ngIf="intentoEnvio && inscripcion.estudiante==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <label>Materia</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [disabled]="!modoCreacion" [(ngModel)]="inscripcion.materia">
+            <p *ngIf="intentoEnvio && inscripcion.materia==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <label>Nota Final</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [(ngModel)]="inscripcion.nota_final">
+            <p *ngIf="intentoEnvio && inscripcion.nota_final==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+    <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+    <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+    </div>
+    </nb-card-body>
+
+    </nb-card>
+</div>
+
