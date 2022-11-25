@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CrearModificarInscripcionComponent } from './crear-modificar-inscripcion/crear-modificar-inscripcion.component';
+import {
+  CrearModificarInscripcionComponent,
+} from './crear-modificar-inscripcion/crear-modificar-inscripcion.component';
 import { InscripcionesComponent } from './inscripciones/inscripciones.component';
 
 const routes: Routes = [
@@ -20,6 +22,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AcademicoRoutingModule { }

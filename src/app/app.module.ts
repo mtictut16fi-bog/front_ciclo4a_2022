@@ -45,7 +45,7 @@ import { TokenInterceptor } from './interceptores/token.interceptor';
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
-    multi: true
+    multi: true,
   }],
 })
 export class AppModule {

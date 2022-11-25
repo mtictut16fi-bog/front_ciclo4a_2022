@@ -8,7 +8,7 @@ describe('CrearModificarInscripcionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrearModificarInscripcionComponent ]
+      declarations: [ CrearModificarInscripcionComponent ],
     })
     .compileComponents();
   });

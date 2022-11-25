@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { Inscripcion } from '../modelos/inscripcion.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InscripcionService {
 
@@ -13,31 +13,31 @@ export class InscripcionService {
     console.debug('Constructor servicioInscripciones');
   }
 
-  listar(): Observable<Inscripcion[]>{
+  listar(): Observable<Inscripcion[]> {
     console.debug('servicioInscripciones-> listar');
     const url = `${environment.url_gateway}/inscripciones`;
     return this.http.get<Inscripcion[]>(url);
   }
 
-  getInscripcion(id: string): Observable<Inscripcion>{
+  getInscripcion(id: string): Observable<Inscripcion> {
     console.debug('servicioInscripciones-> getInscripción: ' + id);
     const url = `${environment.url_gateway}/inscripciones/${id}`;
     return this.http.get<Inscripcion>(url);
   }
 
-  crear(body: Inscripcion): Observable<Inscripcion>{
+  crear(body: Inscripcion): Observable<Inscripcion> {
     console.debug('servicioInscripciones-> crearInscripción');
     const url = `${environment.url_gateway}/inscripciones`;
     return this.http.post<Inscripcion>(url, body);
   }
 
-  editar(id: string, data: Object): Observable<Inscripcion>{
+  editar(id: string, data: Object): Observable<Inscripcion> {
     console.debug('servicioInscripciones-> editarInscripción: ' + id);
     const url = `${environment.url_gateway}/inscripciones/${id}`;
     return this.http.patch<Inscripcion>(url, data);
   }
 
-  eliminar(id: string){
+  eliminar(id: string) {
     console.debug('servicioInscripciones-> eliminar');
     const url = `${environment.url_gateway}/inscripciones/${id}`;
     return this.http.delete<Inscripcion>(url);

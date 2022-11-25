@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { Usuario } from '../modelos/usuario.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SeguridadService {
   elUsuario = new BehaviorSubject<Usuario>(new Usuario);
@@ -52,7 +52,7 @@ export class SeguridadService {
   login(infoUsuario: Usuario): Observable<Usuario> {
     console.debug('Login: ' + infoUsuario);
     const url = `${environment.url_gateway}/login`;
-    console.debug(url)
+    console.debug(url);
     return this.http.post<Usuario>(url, infoUsuario);
   }
 

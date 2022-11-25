@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Logout',
         link: '/pages/seguridad/logout',
       },
-    ]
+    ],
   },
   {
     title: 'Academico',
@@ -23,7 +23,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Inscripciones',
         link: '/pages/academico/inscripciones',
       },
-    ]
+    ],
   },
   // {
   //   title: 'E-commerce',
